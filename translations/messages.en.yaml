@@ -1,0 +1,36 @@
+client:
+  app_client: Show
+  back_to_index: Back to listing
+  title:
+    index: Client listing
+    create: Create client
+    edit: Edit client
+    delete: Delete client
+order:
+  back_to_index: Back to listing
+  show: Show
+  title:
+    create: Create order
+    edit: Edit order
+    delete: Delete order
+orderItem:
+  back_to_index: Back to listing
+  show: Show
+  title:
+    create: Order item create
+    edit: Order item edit
+    delete: Order item delete
+payment:
+  back_to_index: Back to listing
+  title:
+    create: Payment create
+    edit: Payment edit
+    delete: Payment delete
+    show: Payment show
+address:
+  back_to_index: Back to listing
+  title:
+    create: Address create
+    edit: Address edit
+    delete: Address delete
+    show: Address show

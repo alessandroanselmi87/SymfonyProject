@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PaymentController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<a href="{{ path('address_create') }}">
+    {% trans %} address.title.create {% endtrans %}
+</a>
+
+<div class="example-wrapper">
+    {% for address in addresses %}
+    <ul>
+        <li>Id: 
+            <a href="{{ path('address_edit', { id: address.id }) }}">
+                {{ address.id }}
+            </a>
+        </li>
+        <li>Client {{ address.client.firstName }} {{ address.client.lastName }}</li>
+        <li>Street: {{ address.street }}</li>
+        <li>City: {{ address.city }}</li>
+        <li>Postal code: {{ address.postalCode }}</li>
+        <li>Country: {{ address.country }}</li>
+        <li>
+            <a href="{{ path('address_delete', { id: address.id }) }}">
+                {% trans %} address.title.delete {% endtrans %}
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('address_show', { id: address.id }) }}">
+                {% trans %} address.title.show {% endtrans %}
+            </a>
+        </li>
+    </ul>
+    {% endfor %}
+</div>
+{% endblock %}

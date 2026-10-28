@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PaymentController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<a href="{{ path('payment_create') }}">
+    {% trans %} payment.title.create {% endtrans %}
+</a>
+
+<div class="example-wrapper">
+    {% for payment in payments %}
+    <ul>
+        <li>Id: 
+            <a href="{{ path('payment_edit', { id: payment.id }) }}">
+                {{ payment.id }}
+            </a>
+        </li>
+        <li>Order {{ payment.order.total }}</li>
+        <li>Date: {{ payment.paymentDate|date('Y-M-d') }}</li>
+        <li>Method: {{ payment.paymentMethod }}</li>
+        <li>Amount: {{ payment.amount }}</li>
+        <li>Status: {{ payment.status }}</li>
+        <li>Transaction: {{ payment.transactionId }}</li>
+        <li>
+            <a href="{{ path('payment_delete', { id: payment.id }) }}">
+                {% trans %} payment.title.delete {% endtrans %}
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('payment_show', { id: payment.id }) }}">
+                {% trans %} payment.title.show {% endtrans %}
+            </a>
+        </li>
+    </ul>
+    {% endfor %}
+</div>
+{% endblock %}

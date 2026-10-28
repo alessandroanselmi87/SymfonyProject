@@ -1,0 +1,24 @@
+{% block content %}
+
+    <style>
+        #order_item_form label {
+            display: inline-block;
+            width: 200px;
+        }
+        #order_item_form div {
+            padding: 5px;
+        }
+    </style>
+
+    <h1>
+        {% trans %}orderItem.title.edit{% endtrans %}
+    </h1>
+
+    {{ form(form) }}
+
+    <div>
+        <a href="{{ path('app_order_items') }}">
+            {% trans %}orderItem.back_to_index{% endtrans %}
+        </a>
+    </div>
+{% endblock %}

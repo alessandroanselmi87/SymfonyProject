@@ -1,0 +1,13 @@
+{% block content %}
+    <h1>
+        {% trans %}client.title.edit{% endtrans %}
+    </h1>
+
+    {{ form(form) }}
+
+    <div>
+        <a href="{{ path('app_clients') }}">
+            {% trans %}client.back_to_index{% endtrans %}
+        </a>
+    </div>
+{% endblock %}

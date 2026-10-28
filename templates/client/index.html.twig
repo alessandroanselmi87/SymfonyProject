@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ClientController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; border: 1px solid black; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div>
+    <a href="{{ path('client_create') }}">
+        {% trans %}client.title.create{% endtrans %}
+    </a>
+</div>
+
+{% for client in clients %}
+<div class="example-wrapper">
+    <ul>
+        <li>Id:
+            <a href="{{ path('client_edit', { id: client.id }) }}">
+                {{ client.id }}
+            </a>
+        </li>
+        <li>First name: {{ client.firstName }}</li>
+        <li>Last name: {{ client.lastName }}</li>
+        <li>Email: {{ client.email }}</li>
+        <li>Phone: {{ client.phone }}</li>
+        <li>Created At: {{ client.createdAt|date('Y-M-d H:m:s') }}</li>
+    </ul>
+    <div>
+        <a href="{{ path('app_client', { id: client.id }) }}">
+            {% trans %}client.app_client{% endtrans %}
+        </a>
+    </div>
+    <div>
+        <a href="{{ path('client_delete', { id: client.id }) }}">
+            {% trans %}client.title.delete{% endtrans %}
+        </a>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello OrderItemController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div>
+    <a href="{{ path('order_item_create') }}">
+        {% trans %} orderItem.title.create {% endtrans %}
+    </a>
+</div>
+
+<div class="example-wrapper">
+    {% for orderItem in orderItems %}
+    <ul>
+        <li>
+            Id:
+            <a href="{{ path('order_item_edit', { id: orderItem.id }) }}">
+                {{ orderItem.id }}
+            </a>
+        </li>
+        <li>Order: {{ orderItem.order.total }}</li>
+        <li>Product name: {{ orderItem.productName }}</li>
+        <li>Quantity: {{ orderItem.quantity }}</li>
+        <li>Unit price: {{ orderItem.unitPrice }}</li>
+        <li>
+            <a href="{{ path('app_order_item', { id: orderItem.id }) }}">
+                {% trans %}orderItem.show{% endtrans %}
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('order_item_delete', { id: orderItem.id }) }}">
+                {% trans %}orderItem.title.delete{% endtrans %}
+            </a>
+        </li>
+    </ul>
+    {% endfor %}
+</div>
+{% endblock %}

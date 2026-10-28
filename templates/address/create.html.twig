@@ -1,0 +1,13 @@
+{% block content %}
+    <h1>
+        {% trans %}address.title.create{% endtrans %}
+    </h1>
+
+    {{ form(form) }}
+
+    <div>
+        <a href="{{ path('app_addresses') }}">
+            {% trans %}address.back_to_index{% endtrans %}
+        </a>
+    </div>
+{% endblock %}
